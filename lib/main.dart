@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_blog_clean_architecture/core/theme/app_theme.dart';
+import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:flutter_blog_clean_architecture/features/auth/presentation/pages/signup_page.dart';
+import 'package:flutter_blog_clean_architecture/init_dependencies.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDependencies();
+
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (_) => serviceLocator<AuthBloc>()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +26,10 @@ class MyApp extends StatelessWidget {
         builder: (_, __) {
           return MaterialApp(
             title: 'Flutter Blog',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.darkThemeMode,
             home: const Scaffold(
-              body: Text('Home'),
+              body: SignUpPage(),
             ),
           );
         });
