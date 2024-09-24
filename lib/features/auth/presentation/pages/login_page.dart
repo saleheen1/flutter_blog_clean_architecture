@@ -7,7 +7,7 @@ import 'package:flutter_blog_clean_architecture/core/utils/show_snackbar.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/widgets/auth_gradient_button.dart';
-import 'package:flutter_blog_clean_architecture/features/blog/blog_page.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/presentation/pages/blog_page.dart';
 
 class LoginPage extends StatefulWidget {
   static route() => MaterialPageRoute(

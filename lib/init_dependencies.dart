@@ -6,6 +6,11 @@ import 'package:flutter_blog_clean_architecture/features/auth/domain/repository/
 import 'package:flutter_blog_clean_architecture/features/auth/domain/usescases/user_login.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/domain/usescases/user_sign_up.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/data/datasources/blog_remote_datasources.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/data/repository/blog_repository_impl.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/domain/repository/blog_repository.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/domain/usescases/upload_blog.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -25,6 +30,7 @@ Future<void> initDependencies() async {
       () => ConnectionCheckerImpl(serviceLocator()));
 
   _initAuth();
+  _initBlog();
 }
 
 void _initAuth() {
@@ -45,4 +51,14 @@ void _initAuth() {
     // Bloc
     ..registerFactory(() =>
         AuthBloc(userSignUp: serviceLocator(), userLogin: serviceLocator()));
+}
+
+_initBlog() {
+  serviceLocator.registerFactory<BlogRemoteDatasources>(
+      () => BlogRemoteDataSourcesImpl(supabaseClient: serviceLocator()));
+  serviceLocator.registerFactory<BlogRepository>(() => BlogRepositoryImpl(
+      blogRemoteDatasources: serviceLocator(),
+      connectionChecker: serviceLocator()));
+  serviceLocator.registerFactory(() => UploadBlog(serviceLocator()));
+  serviceLocator.registerFactory(() => BlogBloc(serviceLocator()));
 }

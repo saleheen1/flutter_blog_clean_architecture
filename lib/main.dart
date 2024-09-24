@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_clean_architecture/core/theme/app_theme.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/pages/signup_page.dart';
+import 'package:flutter_blog_clean_architecture/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_blog_clean_architecture/init_dependencies.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,6 +13,7 @@ void main() async {
 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => serviceLocator<AuthBloc>()),
+    BlocProvider(create: (_) => serviceLocator<BlogBloc>()),
   ], child: const MyApp()));
 }
 
