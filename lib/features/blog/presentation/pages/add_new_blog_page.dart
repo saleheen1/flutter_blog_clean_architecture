@@ -128,10 +128,10 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                                     size: 40,
                                   ),
                                   SizedBox(height: 15.h),
-                                  const Text(
+                                  Text(
                                     'Select your image',
                                     style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 15.h,
                                     ),
                                   ),
                                 ],

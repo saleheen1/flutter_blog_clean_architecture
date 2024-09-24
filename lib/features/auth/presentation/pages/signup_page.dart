@@ -8,6 +8,7 @@ import 'package:flutter_blog_clean_architecture/core/utils/show_snackbar.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_clean_architecture/core/common/widgets/custom_input_field.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/widgets/auth_gradient_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -54,10 +55,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Sign Up.',
                       style: TextStyle(
-                        fontSize: 50,
+                        fontSize: 50.h,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

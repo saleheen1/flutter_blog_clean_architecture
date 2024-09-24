@@ -3,6 +3,7 @@ import 'package:flutter_blog_clean_architecture/core/theme/app_pallete.dart';
 import 'package:flutter_blog_clean_architecture/core/utils/calculate_reading_time.dart';
 import 'package:flutter_blog_clean_architecture/core/utils/format_date.dart';
 import 'package:flutter_blog_clean_architecture/features/blog/domain/entities/blog.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlogViewerPage extends StatelessWidget {
   final Blog blog;
@@ -24,26 +25,26 @@ class BlogViewerPage extends StatelessWidget {
               children: [
                 Text(
                   blog.title,
-                  style: const TextStyle(
-                    fontSize: 24,
+                  style: TextStyle(
+                    fontSize: 24.h,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   'By ${blog.posterName}',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                    fontSize: 16.h,
                   ),
                 ),
                 const SizedBox(height: 5),
                 Text(
                   '${formatDateBydMMMYYYY(blog.updatedAt)} . ${calculateReadingTime(blog.content)} min',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: AppPallete.greyColor,
-                    fontSize: 16,
+                    fontSize: 16.h,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -54,8 +55,8 @@ class BlogViewerPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 Text(
                   blog.content,
-                  style: const TextStyle(
-                    fontSize: 16,
+                  style: TextStyle(
+                    fontSize: 16.h,
                     height: 2,
                   ),
                 )
