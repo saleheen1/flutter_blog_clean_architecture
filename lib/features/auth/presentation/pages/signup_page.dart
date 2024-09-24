@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_clean_architecture/core/common/widgets/loader.dart';
+import 'package:flutter_blog_clean_architecture/core/routes/app_router.dart';
+import 'package:flutter_blog_clean_architecture/core/routes/route_names.dart';
 import 'package:flutter_blog_clean_architecture/core/theme/app_pallete.dart';
 import 'package:flutter_blog_clean_architecture/core/utils/show_snackbar.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_clean_architecture/core/common/widgets/custom_input_field.dart';
-import 'package:flutter_blog_clean_architecture/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/widgets/auth_gradient_button.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpPage extends StatefulWidget {
-  static route() => MaterialPageRoute(
-        builder: (context) => const SignUpPage(),
-      );
   const SignUpPage({super.key});
 
   @override
@@ -93,7 +92,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, LoginPage.route());
+                        context.push(RouteNames.login);
                       },
                       child: RichText(
                         text: TextSpan(

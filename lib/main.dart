@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_blog_clean_architecture/core/routes/app_router.dart';
 import 'package:flutter_blog_clean_architecture/core/theme/app_theme.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:flutter_blog_clean_architecture/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter_blog_clean_architecture/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_blog_clean_architecture/init_dependencies.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,13 +27,11 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: const Size(428, 926),
         builder: (_, __) {
-          return MaterialApp(
+          return MaterialApp.router(
             title: 'Flutter Blog',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.darkThemeMode,
-            home: const Scaffold(
-              body: SignUpPage(),
-            ),
+            routerConfig: AppRouter().goRouter,
           );
         });
   }

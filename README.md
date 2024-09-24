@@ -7,6 +7,7 @@ For Dependency injection: get_it (pacakge) <br />
 Remote DB: Supabase <br />
 Local DB for caching blogs: Hive <br />
 Screen responsive: flutter_screenutil (package) <br />
+Routing: go_router (package) <br />
 
 
 

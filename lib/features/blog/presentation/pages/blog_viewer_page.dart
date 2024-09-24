@@ -5,11 +5,6 @@ import 'package:flutter_blog_clean_architecture/core/utils/format_date.dart';
 import 'package:flutter_blog_clean_architecture/features/blog/domain/entities/blog.dart';
 
 class BlogViewerPage extends StatelessWidget {
-  static route(Blog blog) => MaterialPageRoute(
-        builder: (context) => BlogViewerPage(
-          blog: blog,
-        ),
-      );
   final Blog blog;
   const BlogViewerPage({
     super.key,

@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_clean_architecture/core/common/cubits/app_user_cubit.dart';
 import 'package:flutter_blog_clean_architecture/core/common/widgets/loader.dart';
 import 'package:flutter_blog_clean_architecture/core/constants/constants.dart';
+import 'package:flutter_blog_clean_architecture/core/routes/app_router.dart';
+import 'package:flutter_blog_clean_architecture/core/routes/route_names.dart';
 import 'package:flutter_blog_clean_architecture/core/theme/app_pallete.dart';
 import 'package:flutter_blog_clean_architecture/core/utils/pick_image.dart';
 import 'package:flutter_blog_clean_architecture/core/utils/show_snackbar.dart';
@@ -13,11 +15,9 @@ import 'package:flutter_blog_clean_architecture/features/blog/presentation/bloc/
 import 'package:flutter_blog_clean_architecture/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter_blog_clean_architecture/features/blog/presentation/widgets/blog_editor.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class AddNewBlogPage extends StatefulWidget {
-  static route() => MaterialPageRoute(
-        builder: (context) => const AddNewBlogPage(),
-      );
   const AddNewBlogPage({super.key});
 
   @override
@@ -83,11 +83,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
           if (state is BlogFailure) {
             showSnackBar(context, state.error);
           } else if (state is BlogUploadSuccess) {
-            Navigator.pushAndRemoveUntil(
-              context,
-              BlogPage.route(),
-              (route) => false,
-            );
+            context.pushReplacementNamed(RouteNames.blogPage);
           }
         },
         builder: (context, state) {
