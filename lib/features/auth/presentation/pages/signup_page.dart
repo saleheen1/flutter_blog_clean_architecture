@@ -5,6 +5,7 @@ import 'package:flutter_blog_clean_architecture/core/theme/app_pallete.dart';
 import 'package:flutter_blog_clean_architecture/core/utils/show_snackbar.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_clean_architecture/core/common/widgets/custom_input_field.dart';
+import 'package:flutter_blog_clean_architecture/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/presentation/widgets/auth_gradient_button.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -91,7 +92,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     const SizedBox(height: 20),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, LoginPage.route());
+                      },
                       child: RichText(
                         text: TextSpan(
                           text: 'Already have an account? ',

@@ -5,7 +5,7 @@ import 'package:flutter_blog_clean_architecture/core/error/failures.dart';
 import 'package:flutter_blog_clean_architecture/core/network/connection_checker.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/data/datasource/auth_remote_data_source.dart';
 import 'package:flutter_blog_clean_architecture/features/auth/domain/repository/auth_repository.dart';
-import 'package:fpdart/src/either.dart';
+import 'package:fpdart/fpdart.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource authRemoteDataSource;
@@ -24,6 +24,13 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     return _loginOrSignUp(() async => await authRemoteDataSource.signUp(
         name: name, email: email, password: password));
+  }
+
+  @override
+  Future<Either<Failure, User>> login(
+      {required String email, required String password}) {
+    return _loginOrSignUp(() async =>
+        await authRemoteDataSource.login(email: email, password: password));
   }
 
   Future<Either<Failure, User>> _loginOrSignUp(

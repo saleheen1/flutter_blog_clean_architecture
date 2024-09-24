@@ -11,3 +11,10 @@ class AuthSignUpPressed extends AuthEvent {
   AuthSignUpPressed(
       {required this.email, required this.password, required this.name});
 }
+
+class AuthLoginPressed extends AuthEvent {
+  final String email;
+  final String password;
+
+  AuthLoginPressed({required this.email, required this.password});
+}
