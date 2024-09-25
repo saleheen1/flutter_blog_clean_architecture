@@ -1,4 +1,4 @@
-# flutter_blog_clean_architecture
+# Flutter blog clean architecture
 
 This is more like a demo project I am just putting in github to show off my coding style. The project follows clean architecture with SOLID Principle.
 
