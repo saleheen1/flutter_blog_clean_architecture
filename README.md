@@ -1,6 +1,6 @@
 # Flutter blog clean architecture
 
-This is more like a demo project I am just putting in github to show off my coding style. The project follows clean architecture with SOLID Principle.
+The project follows clean architecture with Block pattern & SOLID Principle. This is a small project I am just putting in github to show off my coding style.
 
 State management: Bloc <br />
 For Dependency injection: get_it (pacakge) <br />
